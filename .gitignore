@@ -1,0 +1,11 @@
+
+
+./Client/node_modules
+./Client/build
+./Client/.env
+./Client/.env.local
+./Client/.env.development
+./Client/.env.development.local
+./Client/.env.test  
+
+./Client/.next

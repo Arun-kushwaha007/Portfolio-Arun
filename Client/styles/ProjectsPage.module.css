@@ -1,0 +1,90 @@
+.layout {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.container {
+  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.pageTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.pageSubtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* Scroll Down Indicator */
+.scrollDownIndicator {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 10; /* Ensures the scroll indicator stays on top */
+  opacity: 1; /* Initially fully visible */
+  transition: opacity 0.3s ease-out; /* Smooth transition for opacity */
+}
+
+.scrollText {
+  font-size: 28px;
+  color: var(--accent-color);
+  margin-bottom: 7px;
+}
+
+.scrollArrow {
+  font-size: 30px;
+  color: var(--accent-color);
+  animation: bounce 2s infinite;
+}
+
+/* Animation for bounce effect */
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .pageTitle {
+    font-size: 1.75rem;
+  }
+
+  .pageSubtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Adjusting scroll indicator for mobile */
+  .scrollDownIndicator {
+    bottom: 15px; /* Slightly reduced bottom space for mobile */
+  }
+}
