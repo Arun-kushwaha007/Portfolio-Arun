@@ -43,7 +43,7 @@ const ProjectsPage = () => {
         className={styles.scrollDownIndicator} 
         style={{ opacity: scrollOpacity }} // Dynamic opacity based on scroll
       >
-        <div className={styles.scrollText}></div>
+        <div className={styles.scrollText}>.</div>
         <div className={styles.scrollArrow}>↓</div>
       </div>
     </div>

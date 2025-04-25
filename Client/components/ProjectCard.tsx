@@ -18,7 +18,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       <div className={styles.content}>
         <div className={styles.logoWrapper}>
           <Image
-            src={project.logo}
+            src={project.logo} // Importing the project logo dynamically
             alt={`${project.title} logo`}
             width={50}
             height={50}
@@ -33,7 +33,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           {project.techStack.map((tech) => (
             <div key={tech.name} className={styles.techItem}>
               <Image
-                src={tech.logo}
+                src={tech.logo} // Importing tech logos dynamically
                 alt={tech.name}
                 width={20}
                 height={20}
