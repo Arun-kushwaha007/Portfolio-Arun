@@ -98,7 +98,7 @@ export default function HomePage() {
           </div>
 
           <p className={styles.bio}>
-            I'm an ECE undergrad from NIT Hamirpur with a passion for building intelligent systems and real-world solutions.
+            I&apos;m an ECE undergrad from NIT Hamirpur with a passion for building intelligent systems and real-world solutions.
             From MERN-based full-stack apps and real-time chat platforms to drone-based landslide detection using GPR, I fuse
             code with hardware. I’ve organized 4+ national hackathons, mentored 80+ juniors, and deployed 10+ production-ready
             projects. Also exploring AR/VR in Unity and writing NLP pipelines with Python.

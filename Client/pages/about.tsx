@@ -43,7 +43,7 @@ const AboutPage = () => {
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>What I Do</h2>
             <p className={styles.paragraph}>
-              I’m currently developing a drone-based landslide detection system using Ground Penetrating Radar (GPR), Lidar, and thermal imaging. With YOLOv5-based AI pipelines and real-time data fusion, we're aiming to save lives in the Himalayan disaster zones.
+              I&apos;m currently developing a drone-based landslide detection system using Ground Penetrating Radar (GPR), Lidar, and thermal imaging. With YOLOv5-based AI pipelines and real-time data fusion, we're aiming to save lives in the Himalayan disaster zones.
             </p>
             <p className={styles.paragraph}>
               I also prototyped an AI-powered FIR Analyzer that achieved over 85% precision in classifying police reports by IPC sections — finalist at Rajasthan Police Hackathon 2024.

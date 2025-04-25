@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import GitHubCalendar from 'react-github-calendar';
-import { VscRepo, VscPerson, VscLocation, VscOrganization } from 'react-icons/vsc';
+// import { VscRepo, VscPerson, VscLocation, VscOrganization } from 'react-icons/vsc';
 
-import RepoCard from '@/components/RepoCard';
+// import RepoCard from '@/components/RepoCard';
 import { Repo, User } from '@/types';
 
 import styles from '@/styles/GithubPage.module.css';
@@ -19,7 +19,7 @@ const GithubPage = ({ repos = [], user }: GithubPageProps) => {
   return (
     <div className={styles.layout}>
       <div className={styles.pageHeading}>
-        <h1 className={styles.pageTitle}>Hi, I'm Arun Kushwaha 👋</h1>
+        <h1 className={styles.pageTitle}>Hi, I&apos;m Arun Kushwaha 👋</h1>
         <h3 className={styles.pageSubtitle}>
           Electronics & Communication Engineering | Full-Stack Dev | DevOps | DroneTech
         </h3>
@@ -160,7 +160,7 @@ const GithubPage = ({ repos = [], user }: GithubPageProps) => {
         </ul>
 
         <p className={`${styles.footerText} ${styles.centerText}`}>
-          🔥 Let's build the future together!
+          🔥 Let&apos;s build the future together!
         </p>
       </div>
     </div>
