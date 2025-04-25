@@ -6,7 +6,7 @@ const ContactPage = () => {
     <div className={styles.layout}>
       <h1 className={styles.pageTitle}>Contact Me</h1>
       <p className={styles.pageSubtitle}>
-        Let&apos;s connect! Whether you're hiring for a Summer 2025 internship, collaborating on a deep-tech project, or looking to grow a tech community — I’m always open to conversations, opportunities, and impact.
+        Let&apos;s connect! Whether you&apos;re hiring for a Summer 2025 internship, collaborating on a deep-tech project, or looking to grow a tech community — I&apos;m always open to conversations, opportunities, and impact.
       </p>
       <div className={styles.container}>
         <div className={styles.contactContainer}>

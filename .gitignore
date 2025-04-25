@@ -9,3 +9,5 @@
 ./Client/.env.test  
 
 ./Client/.next
+./env
+./env.local
