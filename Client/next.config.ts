@@ -1,16 +1,15 @@
-import type { NextConfig } from 'next';
-
-const nextConfig: NextConfig = {
+// next.config.js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
     remotePatterns: [
-      { hostname: 'res.cloudinary.com', protocol: 'https' },
-      { hostname: 'avatars.githubusercontent.com', protocol: 'https' },
-      { hostname: 'imgur.com', protocol: 'https' },
-      { hostname: 'media2.dev.to', protocol: 'https' },
-      { hostname: 'upload.wikimedia.org', protocol: 'https' }, // Added this line for Wikimedia
-      { hostname: 'raw.githubusercontent.com', protocol: 'https' }, // Added for raw.githubusercontent.com
+      { protocol: 'https', hostname: '**.demolab.com' },
+      { protocol: 'https', hostname: '**.shields.io' },
+      { protocol: 'https', hostname: '**.herokuapp.com' },
+      { protocol: 'https', hostname: '**.vercel.app' },
+      { protocol: 'https', hostname: '**.githubusercontent.com' },
     ],
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

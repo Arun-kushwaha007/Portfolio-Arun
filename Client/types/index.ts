@@ -16,7 +16,7 @@ export interface Project {
   link: string;
   slug: string;
   techStack: TechStack[]; // Added tech stack field to describe technologies used
-  status: 'active' | 'completed' | 'archived'; // Track project status
+  status?: string ; // Track project status
   screenshot?: string; // Optional screenshot field for project preview
   startDate?: string; // Optional start date for the project
   endDate?: string; // Optional end date for the project
