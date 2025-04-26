@@ -14,7 +14,7 @@ const Bottombar = () => {
     <footer className={styles.bottomBar}>
       <div className={styles.container}>
         <a
-          href="https://github.com/itsnitinr/vscode-portfolio"
+          href="https://portfolio-arun-qdkm.vercel.app/"
           target="_blank"
           rel="noreferrer noopener"
           className={styles.section}
