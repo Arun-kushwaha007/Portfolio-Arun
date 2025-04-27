@@ -14,7 +14,7 @@ const contactItems = [
   {
     social: 'linkedin',
     link: 'arun-kushwaha',
-    href: 'https://www.linkedin.com/in/arun-kushwaha/',
+    href: 'https://www.linkedin.com/in/arun-kushwaha-394b5a340/',
   },
   {
     social: 'resume',
