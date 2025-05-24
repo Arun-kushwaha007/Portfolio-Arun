@@ -20,7 +20,8 @@ const ThemeInfo = ({ icon, name, publisher, theme }: ThemeInfoProps) => {
       <div className={styles.imageWrapper}>
         <Image
           src={icon}
-          alt={name}
+          alt="" /* Decorative image as name is present below */
+          aria-hidden="true"
           height={80}
           width={80}
           className={styles.themeImage}

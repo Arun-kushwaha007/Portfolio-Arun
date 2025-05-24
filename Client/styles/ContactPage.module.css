@@ -1,31 +1,12 @@
 .layout {
-  max-width: 900px;
+  max-width: 1200px; /* Increased max-width for two columns */
   margin: 0 auto;
-  height: 100%;
+  padding: 0 1rem; /* Add some padding for smaller screens if layout shrinks */
+  /* height: 100%; Removed to allow content to define height */
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-}
-
-.container > * {
-  flex: 1;
-  max-width: 600px;
-}
-
-.container h1 {
-  margin-bottom: 2rem;
-  font-size: 1.5rem;
-}
-
-.flex {
-  display: flex;
-  gap: 1rem;
-}
-
-.pageTitle {
-  font-size: 2rem;
+.pageTitle { /* Standardized */
+  font-size: 2.25rem;
   font-weight: 700;
   color: var(--accent-color);
   margin-bottom: 1rem;
@@ -35,49 +16,91 @@
   padding-top: 3rem;
 }
 
-.pageSubtitle {
+.pageSubtitle { /* Standardized */
   font-size: 1rem;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 3rem;
-  max-width: 600px;
+  color: var(--text-secondary); 
+  margin-bottom: 2rem; /* Slightly reduced margin */
+  max-width: 700px; /* Increased max-width for subtitle */
   line-height: 1.6;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
 
-@media screen and (max-width: 1200px) {
-  .container {
-    display: block;
-    padding: 2rem 1rem;
+.contentWrapper {
+  display: flex;
+  flex-direction: column; /* Default for mobile */
+  gap: 2.5rem; /* Space between ContactCode and Form */
+  margin-top: 2rem;
+  align-items: flex-start; /* Align items to the start for column layout */
+}
+
+.contactInfoSection,
+.contactFormSection {
+  flex: 1;
+  width: 100%; /* Ensure full width on mobile */
+  min-width: 0; /* Allow flex items to shrink */
+}
+
+.sectionTitle {
+  font-size: 1.5rem; 
+  font-weight: 600;
+  color: var(--text-color); /* Use primary text color for this title */
+  margin-bottom: 1rem;
+  /* text-align: center; /* Center if preferred */
+}
+
+
+/* Responsive adjustments for the new layout */
+@media screen and (min-width: 900px) { /* Breakpoint for two columns */
+  .contentWrapper {
+    flex-direction: row;
+    gap: 3rem; /* Larger gap for wider screens */
+    align-items: flex-start; /* Align items to the start for row layout */
   }
 
-  .container > div:first-child {
-    border-right: none;
-    margin-bottom: 2rem;
+  .contactInfoSection {
+    max-width: 450px; 
+    /* The ContactCode component itself might need internal width adjustments if it looks too wide */
+  }
+  .contactFormSection {
+    /* Form will take remaining space, ContactForm.module.css has its own max-width */
   }
 }
 
+
 @media screen and (max-width: 600px) {
-  .flex {
-    display: block;
+  .layout {
+    padding: 0 0.5rem; /* Reduce padding slightly for very small screens */
   }
-
-  .form input {
-    font-size: 0.85rem;
-  }
-
-  .container {
-    padding: 1.5rem 0.75rem;
+  .contentWrapper {
+    margin-top: 1rem;
+    gap: 1.5rem;
   }
 
   .pageTitle {
     font-size: 1.75rem;
+    padding-top: 1.5rem; /* Reduced top padding */
   }
 
   .pageSubtitle {
-    font-size: 1rem;
-    margin-bottom: 2rem;
+    font-size: 0.95rem; /* Slightly smaller for mobile */
+    margin-bottom: 1.5rem; 
   }
+  .sectionTitle {
+    font-size: 1.3rem;
+  }
+}
+
+/* Removing old .container and .flex rules as they are replaced by .contentWrapper */
+/* It's better to remove them completely if they are not used anywhere else, 
+   but for safety in a large codebase, setting display:none is a quick way.
+   Assuming they are not used elsewhere for this task.
+*/
+.container {
+    /* display: none; */ /* Effectively remove them - or delete if sure */
+}
+.flex {
+    /* display: none; */ /* Effectively remove them - or delete if sure */
 }

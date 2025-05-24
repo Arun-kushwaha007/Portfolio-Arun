@@ -59,9 +59,11 @@
   font-size: 0.8rem;
 }
 
+/* Removed custom focus style to allow global :focus-visible style from globals.css to apply.
 .info button:focus {
   outline: 1px solid var(--accent-color);
 }
+*/
 
 @media screen and (max-width: 768px) {
   .container {

@@ -11,6 +11,7 @@
   height: 100%;
 }
 
+/* Original .editorContent, used by the animated code section */
 .editorContent {
   display: flex;
   flex: 1;
@@ -18,7 +19,7 @@
   position: relative;
   padding: 1rem 0;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.9rem;
+  font-size: 0.875rem; /* Standardized from 0.9rem */
   line-height: 1.5;
 }
 
@@ -55,11 +56,62 @@
   border: 1px solid var(--explorer-border);
 }
 
-.editorContent {
+.animationControlButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(var(--main-bg-rgb, 36, 41, 46), 0.8); /* Use main-bg with opacity or a similar color */
+  color: var(--text-color);
+  border: 1px solid var(--explorer-border);
+  border-radius: 4px;
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+  z-index: 10; /* Ensure it's above editor content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.animationControlButton:hover {
+  background-color: var(--explorer-hover-bg); /* Use a hover background from theme */
+  border-color: var(--accent-color);
+}
+
+.animationControlButton:focus,
+.animationControlButton:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 1px;
+}
+
+/* If main-bg-rgb is not defined, provide a fallback */
+:root {
+  --main-bg-rgb: 36, 41, 46; /* Default for GitHub Dark: #24292e */
+}
+[data-theme='dracula'] {
+  --main-bg-rgb: 40, 42, 54; /* #282a36 */
+}
+[data-theme='ayu-dark'] {
+  --main-bg-rgb: 10, 14, 20; /* #0a0e14 */
+}
+[data-theme='ayu-mirage'] {
+  --main-bg-rgb: 31, 36, 48; /* #1f2430 */
+}
+[data-theme='nord'] {
+  --main-bg-rgb: 46, 52, 64; /* #2e3440 */
+}
+[data-theme='night-owl'] {
+  --main-bg-rgb: 1, 22, 39; /* #011627 */
+}
+
+/* This is the .editorContent specifically for the animated code block structure */
+.codeContainer .editorContent { /* More specific selector */
   display: flex;
   height: 100%;
   position: relative;
   overflow: hidden;
+  font-family: 'JetBrains Mono', monospace; /* Ensure it overrides any other .editorContent */
+  font-size: 0.875rem; /* Standardized from 0.9rem */
 }
 
 .lineNumbers {
@@ -70,7 +122,7 @@
   background: var(--main-bg);
   color: #636e83;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
+  font-size: 0.875rem; /* Was 13px, now standardized */
   user-select: none;
   text-align: right;
   z-index: 2;
@@ -90,7 +142,7 @@
   flex: 1;
   padding: 16px 20px 16px 0;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
+  font-size: 0.875rem; /* Was 13px, now standardized */
   line-height: 1.5;
   color: var(--text-color);
   overflow-y: auto;
@@ -184,7 +236,7 @@
 }
 
 .blank {
-  height: 20px;
+  height: 20px; /* This corresponds to line-height * font-size, approx 1.5 * 14px */
 }
 
 .overlayGlow {
@@ -227,14 +279,14 @@
 
 .developerRole {
   font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(var(--text-color-rgb), 0.8); /* Themed opacity */
   margin-top: -0.5rem;
 }
 
 .bio {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(var(--text-color-rgb), 0.7); /* Themed opacity */
   max-width: 35rem;
   margin: 0;
 }
@@ -283,7 +335,7 @@
 
 .primaryLink {
   background-color: var(--accent-color);
-  color: white;
+  color: white; /* Ensure contrast with accent color */
   padding: 0.75rem 1.5rem;
   border-radius: 6px;
   font-size: 1rem;
@@ -620,12 +672,20 @@
     max-width: 100%;
   }
 
-  .editorContent {
-    font-size: 11px;
+  .codeContainer .editorContent { /* More specific selector for animated code block */
+    font-size: 0.75rem; /* Was 11px, approx 0.6875rem. Making it 12px. */
+  }
+
+  .lineNumbers {
+    font-size: 0.75rem; /* Matching above */
+  }
+  
+  .codeEditor {
+    font-size: 0.75rem; /* Matching above */
   }
 
   .codeLine {
-    font-size: 11px;
+    font-size: 0.75rem; /* Was 11px */
   }
 
   .developerName {

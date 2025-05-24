@@ -26,6 +26,7 @@
         "./*"
       ]
     },
+    "types": ["jest", "node"], // Added "jest" and "node" for broader compatibility
     "typeRoots": [
       "./types",
       "./node_modules/@types"

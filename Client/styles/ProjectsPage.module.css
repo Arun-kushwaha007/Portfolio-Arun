@@ -12,8 +12,8 @@
   gap: 1.5rem;
 }
 
-.pageTitle {
-  font-size: 2rem;
+.pageTitle { /* Standardized */
+  font-size: 2.25rem;
   font-weight: 700;
   color: var(--accent-color);
   margin-bottom: 1rem;
@@ -21,10 +21,10 @@
   line-height: 1.2;
 }
 
-.pageSubtitle {
-  font-size: 1rem;
+.pageSubtitle { /* Standardized */
+  font-size: 1rem; 
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary); /* Changed from rgba to var */
   margin-bottom: 3rem;
   max-width: 600px;
   line-height: 1.6;
@@ -37,9 +37,9 @@
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  z-index: 10; /* Ensures the scroll indicator stays on top */
-  opacity: 1; /* Initially fully visible */
-  transition: opacity 0.3s ease-out; /* Smooth transition for opacity */
+  z-index: 10; 
+  opacity: 1; 
+  transition: opacity 0.3s ease-out; 
 }
 
 .scrollText {
@@ -54,7 +54,6 @@
   animation: bounce 2s infinite;
 }
 
-/* Animation for bounce effect */
 @keyframes bounce {
   0% {
     transform: translateY(0);
@@ -67,7 +66,6 @@
   }
 }
 
-/* Media query for responsiveness */
 @media screen and (max-width: 768px) {
   .container {
     grid-template-columns: 1fr;
@@ -75,16 +73,15 @@
   }
 
   .pageTitle {
-    font-size: 1.75rem;
+    font-size: 1.75rem; /* Mobile size */
   }
 
   .pageSubtitle {
-    font-size: 1rem;
+    font-size: 1rem; /* Mobile size */
     margin-bottom: 2rem;
   }
 
-  /* Adjusting scroll indicator for mobile */
   .scrollDownIndicator {
-    bottom: 15px; /* Slightly reduced bottom space for mobile */
+    bottom: 15px; 
   }
 }

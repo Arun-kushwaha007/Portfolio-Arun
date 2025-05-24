@@ -1,13 +1,25 @@
 import { useState, useEffect } from 'react';
 import ProjectCard from '@/components/ProjectCard';
+import ProjectCardSkeleton from '@/components/ProjectCardSkeleton'; // Import skeleton
 import { projects } from '@/data/projects';
 
 import styles from '@/styles/ProjectsPage.module.css';
 
 const ProjectsPage = () => {
-  const [scrollOpacity, setScrollOpacity] = useState(1); // Start with full opacity
+  const [isLoading, setIsLoading] = useState(true); // Added loading state
+  const [scrollOpacity, setScrollOpacity] = useState(1);
+
+  // Simulate loading for demonstration
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500); // Simulate 1.5 second load time
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
+    if (isLoading) return; // Don't run scroll effect if loading
+
     const handleScroll = () => {
       const scrollPosition = window.scrollY; // Get current scroll position
       const maxScroll = document.documentElement.scrollHeight - window.innerHeight; // Total scrollable height
@@ -23,7 +35,7 @@ const ProjectsPage = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [isLoading]); // Added isLoading to dependency array
 
   return (
     <div className={styles.layout}>
@@ -33,23 +45,33 @@ const ProjectsPage = () => {
       </p>
 
       <div className={styles.container}>
-        {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
-        ))}
+        {isLoading ? (
+          Array.from({ length: projects.length > 0 ? projects.length : 3 }).map((_, index) => (
+            <ProjectCardSkeleton key={index} />
+          ))
+        ) : (
+          projects.map((project) => (
+            <ProjectCard key={project.slug} project={project} />
+          ))
+        )}
       </div>
 
-      {/* Scroll Down Indicator */}
-      <div 
-        className={styles.scrollDownIndicator} 
-        style={{ opacity: scrollOpacity }} // Dynamic opacity based on scroll
-      >
-        <div className={styles.scrollText}>.</div>
-        <div className={styles.scrollArrow}>↓</div>
-      </div>
+      {/* Scroll Down Indicator - only show if not loading */}
+      {!isLoading && (
+        <div 
+          className={styles.scrollDownIndicator} 
+          style={{ opacity: scrollOpacity }} 
+        >
+          <div className={styles.scrollText}>.</div>
+          <div className={styles.scrollArrow}>↓</div>
+        </div>
+      )}
     </div>
   );
 };
 
+// getStaticProps remains the same, as data is available at build time.
+// The loading simulation is purely for demonstrating skeletons.
 export async function getStaticProps() {
   return {
     props: { title: 'My Projects' },

@@ -54,3 +54,10 @@ export interface User {
   blog?: string; // User's blog or website, can be optional
   created_at: string; // Date when the GitHub account was created
 }
+
+export interface ContactFormData {
+  name: string;
+  email: string;
+  subject?: string;
+  message: string;
+}

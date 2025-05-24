@@ -8,6 +8,90 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: var(--text-color); /* Set default text color for the body */
+  background-color: var(--main-bg); /* Set default background for the body */
+  line-height: 1.5; /* Default line height for better readability */
+}
+
 a {
   text-decoration: none;
+  color: var(--accent-color); /* Default link color */
 }
+
+/* Consistent underline style for text links */
+.link-underline {
+  cursor: pointer;
+  /* Use text-color and change to accent on hover for better differentiation from plain links */
+  color: var(--text-color); 
+  text-decoration: none;
+  background-image: linear-gradient(
+    120deg,
+    var(--accent-color) 100%,
+    var(--accent-color) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 88%;
+  transition: background-size 0.25s ease-in, color 0.25s ease-in;
+}
+
+.link-underline:hover,
+.link-underline:focus-visible { /* Added focus-visible for accessibility */
+  background-size: 100% 88%;
+  color: var(--accent-color); 
+}
+
+/* Basic focus outline for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--accent-color, Highlight); /* Fallback to browser default Highlight */
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.25); /* Optional: adds a softer glow, adjust color as needed */
+}
+
+/* Skeleton Loading Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton {
+  background: #f0f0f0; /* Light gray base */
+  background-image: linear-gradient(to right, #f0f0f0 0%, #e0e0e0 20%, #f0f0f0 40%, #f0f0f0 100%);
+  background-repeat: no-repeat;
+  background-size: 2000px 100%; /* Large size for shimmer effect */
+  display: inline-block;
+  animation: shimmer 2s infinite linear;
+  border-radius: 4px; /* Optional: match card radius */
+}
+
+/* Dark theme adjustments for skeleton */
+[data-theme='dracula'] .skeleton,
+[data-theme='ayu-dark'] .skeleton,
+[data-theme='ayu-mirage'] .skeleton,
+[data-theme='nord'] .skeleton,
+[data-theme='night-owl'] .skeleton,
+:root[data-theme='github-dark'] .skeleton, /* Default dark theme */
+:root .skeleton { /* Default if no theme, assuming dark by default */
+  background: #333; /* Darker base for dark themes */
+  background-image: linear-gradient(to right, #333 0%, #444 20%, #333 40%, #333 100%);
+}
+/* Ensure :root .skeleton targets the default theme (GitHub Dark) correctly */
+:root:not([data-theme="dracula"]):not([data-theme="ayu-dark"]):not([data-theme="ayu-mirage"]):not([data-theme="nord"]):not([data-theme="night-owl"]) .skeleton {
+  background: #333; 
+  background-image: linear-gradient(to right, #333 0%, #444 20%, #333 40%, #333 100%);
+}
+
+/* Remove default outline for elements that have custom focus-visible styles if needed,
+   but ensure those custom styles are very clear.
+   For now, let's apply a consistent style. */
+/*
+*:focus {
+  outline: none;
+}
+*/

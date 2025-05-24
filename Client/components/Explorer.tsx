@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { VscChevronRight } from 'react-icons/vsc';
@@ -42,7 +43,7 @@ const Explorer = () => {
   const [portfolioOpen, setPortfolioOpen] = useState(true);
 
   return (
-    <div className={styles.explorer}>
+    <nav className={styles.explorer} aria-label="File explorer">
       <p className={styles.title}>Explorer</p>
       <div>
         <input
@@ -56,6 +57,7 @@ const Explorer = () => {
           <VscChevronRight
             className={styles.chevron}
             style={portfolioOpen ? { transform: 'rotate(90deg)' } : {}}
+            aria-hidden="true"
           />
           Portfolio
         </label>
@@ -66,14 +68,14 @@ const Explorer = () => {
           {explorerItems.map((item) => (
             <Link href={item.path} key={item.name}>
               <div className={styles.file}>
-                <Image src={item.icon} alt={item.name} height={18} width={18} />{' '}
+                <Image src={item.icon} alt="" height={18} width={18} aria-hidden="true" />{' '}
                 <p>{item.name}</p>
               </div>
             </Link>
           ))}
         </div>
       </div>
-    </div>
+    </nav> 
   );
 };
 

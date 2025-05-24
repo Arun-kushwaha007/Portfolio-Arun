@@ -4,7 +4,7 @@
   padding: 0 0.5rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */ /* Adjusted for hamburger menu */
   color: #fff;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 0.85rem;
@@ -21,6 +21,7 @@
 .title {
   flex: 1;
   text-align: center;
+  margin-left: auto; /* Push title away from left items/hamburger */
 }
 
 .items > * {
@@ -29,7 +30,7 @@
 }
 
 .windowButtons {
-  flex: 1;
+  /* flex: 1; */ /* Allow title to take more space */
   display: flex;
   align-items: center;
   margin-left: auto;
@@ -56,11 +57,57 @@
   background: #ff5555;
 }
 
+.hamburgerButton {
+  display: none; /* Hidden by default, shown via media query */
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0; /* Remove padding for cleaner look */
+  margin-right: 0.75rem; /* Space between hamburger and VSCode icon */
+  font-size: 1.25rem; /* Adjust icon size if needed */
+  line-height: 1; /* Ensure icon is centered */
+}
+
+.icon { /* VSCode icon */
+  /* No specific change needed yet, but available for tweaks */
+}
+
+
 @media screen and (max-width: 900px) {
-  .items p {
+  .items p { /* Menu items like File, Edit */
     display: none;
   }
   .title {
-    flex: 4;
+    flex-grow: 1; /* Allow title to take available space */
+    text-align: center; /* Re-center if needed */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hamburgerButton {
+    display: flex; /* Use flex to align icon inside button */
+    align-items: center;
+    justify-content: center;
+  }
+  .icon { /* VSCode icon next to hamburger */
+    margin-left: 0; /* Remove margin if hamburger is present */
+  }
+  .items { /* Ensure items div (File, Edit etc.) doesn't take space */
+    display: none;
+  }
+  .title {
+     /* margin-left: 0; /* Reset margin if hamburger takes up space to the left */
+     /* text-align: left; /* Align title to left if hamburger is too prominent */
+     /* The title might need to be less prominent or hidden on very small screens if space is an issue */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .title {
+    display: none; /* Hide title on very small screens to save space */
+  }
+  .windowButtons {
+    margin-left: auto; /* Ensure window buttons stay to the right */
   }
 }

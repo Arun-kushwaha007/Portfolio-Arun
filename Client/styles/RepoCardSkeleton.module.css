@@ -1,0 +1,75 @@
+.cardSkeleton {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--article-bg); /* Use themed background */
+  border-radius: 8px;
+  padding: 1.25rem;
+  height: 180px; /* Approximate height of a repo card */
+  border: 1px solid var(--border-color-soft);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  width: 60%;
+  height: 1.1rem; /* Matches .title font-size in RepoCard.module.css */
+  border-radius: 4px;
+  margin-bottom: 0.25rem; /* Space for underline */
+}
+
+.language {
+  width: 25%;
+  height: 0.8rem; /* Matches .language font-size */
+  border-radius: 4px;
+}
+
+.descriptionLine1 {
+  width: 100%;
+  height: 0.92rem; /* Matches p font-size */
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+}
+
+.descriptionLine2 {
+  width: 85%;
+  height: 0.92rem;
+  margin-bottom: 0.75rem;
+  border-radius: 4px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color-soft); /* Use themed soft border */
+}
+
+.statGroup1 {
+  display: flex;
+  gap: 1rem;
+}
+
+.statItem {
+  width: 40px; /* Approx width for icon + number */
+  height: 0.85rem; /* Matches .stats font-size */
+  border-radius: 4px;
+}
+
+.statGroup2 {
+  display: flex;
+  gap: 1rem;
+}
+
+.iconLink {
+  width: 20px;
+  height: 1rem; /* Matches icon size */
+  border-radius: 4px;
+}

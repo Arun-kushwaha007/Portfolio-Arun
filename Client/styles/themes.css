@@ -1,15 +1,23 @@
 /* GitHub Dark */
 :root {
   --main-bg: #24292e;
+  --main-bg-rgb: 36, 41, 46; /* For rgba() */
   --bg-text: rgba(56, 58, 61, 0.35);
   --text-color: #efefef;
+  --text-color-rgb: 239, 239, 239;
+  --text-secondary: #ADBAC7;
   --accent-color: #f9826c;
+  --accent-color-rgb: 249, 130, 108; /* For rgba() */
+  --icon-inactive-color: #ADBAC7;
+  --icon-active-color: #E1E4E8;
+  --line-number-color: #A0AEC0;
+  --border-color-soft: rgba(var(--text-color-rgb), 0.1);
   --titlebar-bg: #1f2428;
   --sidebar-bg: #24292e;
   --sidebar-hover-bg: #1f2428;
   --explorer-bg: #1f2428;
   --explorer-hover-bg: #24292e;
-  --explorer-border: #161a1d;
+  --explorer-border: #161a1d; /* Darker, more solid border */
   --tabs-bg: #1f2428;
   --tab-bg: #1f2428;
   --tab-active-bg: #24292e;
@@ -27,9 +35,17 @@
 /* Dracula */
 [data-theme='dracula'] {
   --main-bg: #282a36;
+  --main-bg-rgb: 40, 42, 54;
   --bg-text: #313340;
   --text-color: #efefef;
+  --text-color-rgb: 239, 239, 239;
+  --text-secondary: #ADBAC7;
   --accent-color: #bd93f9;
+  --accent-color-rgb: 189, 147, 249;
+  --icon-inactive-color: #ADBAC7;
+  --icon-active-color: #E1E4E8;
+  --line-number-color: #A0AEC0;
+  --border-color-soft: rgba(var(--text-color-rgb), 0.1);
   --titlebar-bg: #1e1f29;
   --sidebar-bg: #343746;
   --sidebar-hover-bg: #3c3d51;
@@ -53,36 +69,52 @@
 /* Ayu Dark */
 [data-theme='ayu-dark'] {
   --main-bg: #0a0e14;
+  --main-bg-rgb: 10, 14, 20;
   --bg-text: #101620;
   --text-color: #efefef;
+  --text-color-rgb: 239, 239, 239;
+  --text-secondary: #ADBAC7;
   --accent-color: #e6b450;
-  --titlebar-bg: #1f2428;
+  --accent-color-rgb: 230, 180, 80;
+  --icon-inactive-color: #ADBAC7;
+  --icon-active-color: #E1E4E8;
+  --line-number-color: #A0AEC0;
+  --border-color-soft: rgba(var(--text-color-rgb), 0.1);
+  --titlebar-bg: #1f2428; 
   --sidebar-bg: #0a0e14;
   --sidebar-hover-bg: #00010a;
   --explorer-bg: #0a0e14;
   --explorer-hover-bg: #00010a;
-  --explorer-border: transparent;
+  --explorer-border: transparent; /* Ayu often uses no borders or very subtle ones */
   --tabs-bg: #0a0e14;
   --tab-bg: #0a0e14;
-  --tab-active-bg: #0a0e14;
-  --tab-border: transparent;
+  --tab-active-bg: #0a0e14; 
+  --tab-border: transparent; 
   --bottombar-bg: #0a0e14;
   --bottombar-border: transparent;
   --button-bg: #e6b450;
   --button-text: #0a0e14;
-  --bottombar-hover-bg: #4f4f52;
+  --bottombar-hover-bg: #4f4f52; 
   --scrollbar-track-bg: #0a0e14;
-  --scrollbar-thumb-bg: #454647;
+  --scrollbar-thumb-bg: #454647; 
   --article-bg: #10121a;
 }
 
 /* Ayu Mirage */
 [data-theme='ayu-mirage'] {
   --main-bg: #1f2430;
+  --main-bg-rgb: 31, 36, 48;
   --bg-text: #21242b;
   --text-color: #efefef;
-  --accent-color: #e6b450;
-  --titlebar-bg: #1f2428;
+  --text-color-rgb: 239, 239, 239;
+  --text-secondary: #ADBAC7;
+  --accent-color: #e6b450; 
+  --accent-color-rgb: 230, 180, 80;
+  --icon-inactive-color: #ADBAC7; 
+  --icon-active-color: #E1E4E8;   
+  --line-number-color: #A0AEC0;
+  --border-color-soft: rgba(var(--text-color-rgb), 0.1);  
+  --titlebar-bg: #1f2428; 
   --sidebar-bg: #1f2430;
   --sidebar-hover-bg: #191e2a;
   --explorer-bg: #1f2430;
@@ -105,15 +137,23 @@
 /* Nord */
 [data-theme='nord'] {
   --main-bg: #2e3440;
+  --main-bg-rgb: 46, 52, 64;
   --bg-text: #3b414d;
-  --text-color: #efefef;
-  --accent-color: #88c0d0;
-  --titlebar-bg: #1f2428;
+  --text-color: #e5e9f0; 
+  --text-color-rgb: 229, 233, 240;
+  --text-secondary: #d8dee9; 
+  --accent-color: #88c0d0;  
+  --accent-color-rgb: 136, 192, 208;
+  --icon-inactive-color: #d8dee9; 
+  --icon-active-color: #eceff4;   
+  --line-number-color: #d8dee9; 
+  --border-color-soft: rgba(var(--text-color-rgb), 0.1);
+  --titlebar-bg: #1f2428; 
   --sidebar-bg: #2e3440;
   --sidebar-hover-bg: #434c5e;
   --explorer-bg: #2e3440;
   --explorer-hover-bg: #434c5e;
-  --explorer-border: rgba(136, 192, 208, 0.2);
+  --explorer-border: #3b4252; /* Nord often uses slightly darker bg for borders */
   --tabs-bg: #2e3440;
   --tab-bg: #2e3440;
   --tab-active-bg: #3b4252;
@@ -131,22 +171,30 @@
 /* Night Owl */
 [data-theme='night-owl'] {
   --main-bg: #011627;
+  --main-bg-rgb: 1, 22, 39;
   --bg-text: #031d33;
-  --text-color: #89a4bb;
-  --accent-color: rgb(95, 126, 151);
+  --text-color: #9fbccc; 
+  --text-color-rgb: 159, 188, 204;
+  --text-secondary: #637777; 
+  --accent-color: #addb67; 
+  --accent-color-rgb: 173, 219, 103;
+  --icon-inactive-color: #637777; 
+  --icon-active-color: #9fbccc;   
+  --line-number-color: #4b6479; 
+  --border-color-soft: rgba(var(--text-color-rgb), 0.15); /* Slightly more visible for Night Owl */
   --titlebar-bg: #011627;
   --sidebar-bg: #011627;
   --sidebar-hover-bg: #0e293f;
   --explorer-bg: #011627;
   --explorer-hover-bg: #0e293f;
-  --explorer-border: transparent;
+  --explorer-border: transparent; /* Night Owl often uses no borders */
   --tabs-bg: #011627;
   --tab-bg: #01111d;
   --tab-active-bg: #0b2942;
   --tab-border: rgb(39, 43, 59);
   --bottombar-bg: #011627;
   --bottombar-border: #262a39;
-  --button-bg: rgb(95, 126, 151);
+  --button-bg: #7e57c2; 
   --button-text: #fff;
   --bottombar-hover-bg: #1b222f;
   --scrollbar-track-bg: #011627;

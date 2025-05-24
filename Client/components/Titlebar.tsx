@@ -1,10 +1,26 @@
 import Image from 'next/image';
+import { VscMenu } from 'react-icons/vsc'; // Using react-icons for a menu icon
 
 import styles from '@/styles/Titlebar.module.css';
 
-const Titlebar = () => {
+interface TitlebarProps {
+  onToggleSidebar?: () => void;
+  isSidebarOpen?: boolean; // To set aria-expanded
+}
+
+const Titlebar: React.FC<TitlebarProps> = ({ onToggleSidebar, isSidebarOpen }) => {
   return (
     <section className={styles.titlebar}>
+      {onToggleSidebar && (
+        <button
+          className={styles.hamburgerButton}
+          onClick={onToggleSidebar}
+          aria-label="Toggle sidebar"
+          aria-expanded={isSidebarOpen}
+        >
+          <VscMenu size={20} />
+        </button>
+      )}
       <Image
         src="/logos/vscode_icon.svg"
         alt="VSCode Icon"

@@ -1,0 +1,58 @@
+.cardSkeleton {
+  background: var(--article-bg);
+  border-radius: 16px;
+  padding: 1.5rem;
+  height: 100%; /* Or a fixed min-height if preferred */
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color-soft);
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 200px; /* Matches .imageWrapper height in ArticleCard.module.css */
+  border-radius: 8px; /* Optional: if image area has radius */
+  margin-bottom: 1.25rem;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.title {
+  width: 80%;
+  height: 1rem; /* Matches .title font-size in ArticleCard.module.css */
+  border-radius: 4px;
+  margin-bottom: 0.5rem; /* Approximate spacing */
+}
+
+.descriptionLine1 {
+  width: 100%;
+  height: 0.85rem; /* Matches .description font-size */
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+}
+
+.descriptionLine2 {
+  width: 90%;
+  height: 0.85rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: auto; /* Push footer to the bottom */
+}
+
+.stat {
+  width: 30%;
+  height: 0.9rem; /* Matches .stats font-size */
+  border-radius: 4px;
+}

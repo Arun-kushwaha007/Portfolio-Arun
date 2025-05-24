@@ -1,11 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react'; // Added useRef
 import Link from 'next/link';
-import { VscArrowRight } from 'react-icons/vsc';
+import { VscArrowRight, VscDebugPause, VscDebugStart } from 'react-icons/vsc'; // Added icons
 
 import styles from '@/styles/HomePage.module.css';
 
 export default function HomePage() {
   const [activeLineIndex, setActiveLineIndex] = useState(0);
+  const [isAnimationPaused, setIsAnimationPaused] = useState(false);
+  const animationPausedRef = useRef(isAnimationPaused); // Ref to hold current pause state for interval
+
+  // Keep ref in sync with state
+  useEffect(() => {
+    animationPausedRef.current = isAnimationPaused;
+  }, [isAnimationPaused]);
 
   const codeLines = [
     { code: 'const HomePage = () => {', type: 'function' },
@@ -48,16 +55,29 @@ export default function HomePage() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveLineIndex((prev) => (prev + 1) % codeLines.length);
-    }, 2000);
+      if (!animationPausedRef.current) { // Use ref for current pause state
+        setActiveLineIndex((prev) => (prev + 1) % codeLines.length);
+      }
+    }, 2000); // Animation speed
     return () => clearInterval(interval);
-  }, [codeLines.length]);
+  }, [codeLines.length]); // Rerun effect if codeLines.length changes (should not happen here)
+
+  const toggleAnimationPause = () => {
+    setIsAnimationPaused(!isAnimationPaused);
+  };
 
   return (
     <div className={styles.heroLayout}>
       <div className={styles.container}>
         <div className={styles.codeSection}>
           <div className={styles.codeContainer}>
+            <button
+              onClick={toggleAnimationPause}
+              className={styles.animationControlButton}
+              aria-label={isAnimationPaused ? "Resume code animation" : "Pause code animation"}
+            >
+              {isAnimationPaused ? <VscDebugStart size={20} /> : <VscDebugPause size={20} />}
+            </button>
             <div className={styles.editorContent}>
               <div className={styles.lineNumbers}>
                 {codeLines.map((_, index) => (

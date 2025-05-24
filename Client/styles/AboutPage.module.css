@@ -12,17 +12,17 @@
   align-items: center;
 }
 
-.title {
-  font-size: 2.5rem;
+.title { /* Standardized Page Title */
+  font-size: 2.25rem; 
   font-weight: 700;
   margin-bottom: 0.5rem;
   color: var(--accent-color);
   letter-spacing: -0.03em;
 }
 
-.subtitle {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
+.subtitle { /* Standardized Page Subtitle */
+  font-size: 1rem; 
+  color: var(--text-secondary); /* Ensure --text-secondary is defined in themes.css or use a default */
   margin-bottom: 3rem;
 }
 

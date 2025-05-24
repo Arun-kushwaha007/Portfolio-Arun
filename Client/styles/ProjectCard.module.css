@@ -6,8 +6,8 @@
   cursor: pointer;
   overflow: hidden;
   position: relative;
-  height: 320px; /* Adjusted height */
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  min-height: 320px; 
+  border: 1px solid var(--border-color-soft); /* Themed border */
   transition: all 0.25s ease;
   text-decoration: none;
   color: inherit;
@@ -42,14 +42,14 @@
 }
 
 .logoWrapper {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(var(--text-color-rgb), 0.05); /* Themed background */
   width: 42px;
   height: 42px;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color-soft); /* Themed border */
   margin-bottom: 1.25rem;
 }
 
@@ -69,7 +69,7 @@
 .description {
   font-size: 0.9rem;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(var(--text-color-rgb), 0.8); /* Themed opacity */
   margin-bottom: 1rem;
 }
 
@@ -91,7 +91,7 @@
 
 .link:hover {
   background: var(--accent-color);
-  color: var(--bg-color);
+  color: var(--main-bg); /* Changed from --bg-color to --main-bg for consistency */
 }
 
 .techStack {
@@ -130,7 +130,7 @@
   font-size: 0.9rem;
   letter-spacing: 0;
   cursor: pointer;
-  color: white;
+  color: var(--text-color); /* Ensure this uses themed text color */
   text-decoration: none;
   background-image: linear-gradient(
     120deg,

@@ -1,17 +1,28 @@
 'use client';
 
+import { useState, useEffect } from 'react'; // Added useState, useEffect
 import Image from 'next/image';
 import GitHubCalendar from 'react-github-calendar';
-import { User } from '@/types'; // Only User imported now
+import { User } from '@/types'; 
+import RepoCardSkeleton from '@/components/RepoCardSkeleton'; // Import skeleton
 import styles from '@/styles/GithubPage.module.css';
 
 interface GithubPageProps {
-  user?: User;
+  user?: User; // This might come from getStaticProps/getServerSideProps if implemented
 }
 
 const GithubPage = ({ user }: GithubPageProps) => {
+  const [isLoadingRepos, setIsLoadingRepos] = useState(true); // State for repo loading
   const githubUsername = process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'Arun-Kushwaha007';
-  console.log('GitHub Username:', githubUsername);
+  // console.log('GitHub Username:', githubUsername); // Keep for debugging if needed
+
+  // Simulate fetching repositories
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoadingRepos(false); // Simulate data loaded after 2 seconds
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const generateBadgeUrl = (tech: string, color: string, logoColor = 'white') => {
     const logoName = tech
@@ -42,7 +53,7 @@ const GithubPage = ({ user }: GithubPageProps) => {
                 </div>
           
                 <div className={styles.githubPage}>
-                  {user && (
+                  {user && ( // User profile section (data might be from props)
                     <div className={styles.profileSection}>
                       <div className={styles.profileInfo}>
                         {user.avatar_url && (
@@ -55,23 +66,27 @@ const GithubPage = ({ user }: GithubPageProps) => {
                             priority
                           />
                         )}
-                        <h2>{user.name}</h2>
-                        <p>{user.bio}</p>
+                        <h2>{user.name || githubUsername}</h2> {/* Display username if name not available */}
+                        <p>{user.bio || 'GitHub user profile.'}</p>
                       </div>
                     </div>
                   )}
-          
-                  {/* Uncomment when RepoCard is ready
+                  
+                  {/* Popular Repositories Section */}
                   <div className={styles.sectionHeader}>
                     <h3 className={styles.sectionTitle}>Popular Repositories</h3>
                   </div>
                   <div className={styles.reposContainer}>
-                    {repos.length > 0 ? (
-                      repos.map((repo) => <RepoCard key={repo.id} repo={repo} />)
+                    {isLoadingRepos ? (
+                      Array.from({ length: 4 }).map((_, index) => ( // Display 4 skeletons
+                        <RepoCardSkeleton key={index} />
+                      ))
                     ) : (
-                      <p>No repositories to display.</p>
+                      // Actual RepoCard mapping would go here if repos were fetched
+                      // For now, show a message if not loading and no actual repos are mapped
+                      <p>Repositories would be displayed here. (Data fetching is currently simulated/commented)</p>
                     )}
-                  </div> */}
+                  </div>
           
                   <div className={styles.contributions}>
                     <h3 className={styles.sectionTitle}>GitHub Contributions</h3>

@@ -54,11 +54,39 @@
 
 @media screen and (max-width: 600px) {
   .sidebar {
-    width: 10vw;
+    width: 10vw; /* This will be overridden by the 768px rule for display:none */
   }
   .icon {
     height: 40px;
     width: 40px;
     padding: 0.6rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar { /* Base style for mobile: hidden and positioned for slide-in */
+    display: none; 
+    position: fixed;
+    left: -280px; /* Start off-screen */
+    top: 30px; /* Below Titlebar */
+    height: calc(100vh - 30px); /* Adjust if bottom bar should be visible */
+    width: 280px; 
+    z-index: 1000;
+    transition: left 0.3s ease-in-out;
+    overflow-y: auto;
+    border-right: 1px solid var(--explorer-border); /* Consistent look */
+    background: var(--sidebar-bg); /* Ensure background is set */
+  }
+
+  .sidebarOpen { /* This class is added when isSidebarOpen is true */
+    display: flex !important; /* Show the sidebar */
+    left: 0; /* Slide it in */
+  }
+
+  /* Adjust icon sizes specifically for the open mobile sidebar if needed */
+  .sidebarOpen .icon {
+    height: 40px;
+    width: 40px;
+    padding: 0.5rem; /* Slightly smaller padding */
   }
 }

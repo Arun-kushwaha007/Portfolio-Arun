@@ -5,7 +5,7 @@
   background-color: var(--article-bg);
   border-radius: 4px;
   padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color-soft); /* Themed border */
   position: relative;
   overflow: hidden;
 }
@@ -32,9 +32,9 @@
   left: 0;
   top: 0;
   margin-right: 1rem;
-  color: grey;
+  color: var(--line-number-color);
   font-size: 0.9rem;
-  opacity: 0.8;
+  /* opacity: 0.8; */ /* Removed for better contrast and to use pre-defined line-number-color */
 }
 
 .code a {

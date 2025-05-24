@@ -4,7 +4,7 @@ import styles from '@/styles/Tabsbar.module.css';
 
 const Tabsbar = () => {
   return (
-    <div className={styles.tabs}>
+    <nav className={styles.tabs} aria-label="Page content tabs">
       <Tab icon="/logos/react_icon.svg" filename="home.tsx" path="/" />
       <Tab icon="/logos/html_icon.svg" filename="about.html" path="/about" />
       <Tab icon="/logos/css_icon.svg" filename="contact.css" path="/contact" />
@@ -19,7 +19,7 @@ const Tabsbar = () => {
         filename="github.md"
         path="/github"
       />
-    </div>
+    </nav>
   );
 };
 

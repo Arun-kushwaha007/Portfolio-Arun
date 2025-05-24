@@ -1,0 +1,69 @@
+.cardSkeleton {
+  background: var(--article-bg); /* Use a themed background */
+  border-radius: 12px;
+  padding: 1.75rem;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color-soft);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.logoWrapper {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  margin-bottom: 1.25rem;
+}
+
+.title {
+  width: 70%;
+  height: 1.35rem; /* Matches .title font-size */
+  margin-bottom: 0.75rem;
+  border-radius: 4px;
+}
+
+.descriptionLine1 {
+  width: 90%;
+  height: 0.9rem; /* Matches .description font-size */
+  margin-bottom: 0.5rem; /* Approximate line spacing */
+  border-radius: 4px;
+}
+
+.descriptionLine2 {
+  width: 80%;
+  height: 0.9rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.techStack {
+  display: flex;
+  margin-top: 1rem;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.techItem {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+}
+
+.status {
+  width: 50%;
+  height: 0.9rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.dates {
+  width: 60%;
+  height: 0.9rem;
+  border-radius: 4px;
+}
