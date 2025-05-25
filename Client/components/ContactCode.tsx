@@ -19,7 +19,7 @@ const contactItems = [
   {
     social: 'resume',
     link: 'View Resume',
-    href:"https://drive.google.com/file/d/1b8wvVqNVQZQODkqHlopaqI9YQO_Ugq-M/view?usp=drive_link", // <-- Replace with your file ID or URL
+    href:"https://drive.google.com/file/d/1NqV72glFAtCTJGs5RFGCeBfqX4Cj4x5V/view?usp=sharing", // <-- Replace with your file ID or URL
   },
   // Optional — add your portfolio website if hosted
   // {

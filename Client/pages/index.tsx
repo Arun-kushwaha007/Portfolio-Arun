@@ -109,7 +109,7 @@ export default function HomePage() {
               Explore My Work <VscArrowRight />
             </Link>
             <Link
-              href="https://drive.google.com/file/d/1b8wvVqNVQZQODkqHlopaqI9YQO_Ugq-M/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1NqV72glFAtCTJGs5RFGCeBfqX4Cj4x5V/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.primaryLink}
